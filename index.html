@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completo de Git e GitHub</title>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Guia Completo de Git & GitHub</h1>
+            <p>Aprenda a controlar versões do seu código e colaborar em projetos de forma profissional</p>
+        </div>
+    </header>
+
+    <div class="container main-layout">
+        <aside class="sidebar">
+            <h3>Navegação</h3>
+            <ul>
+                <li><a href="#introducao">1. Introdução</a></li>
+                <li><a href="#configuracao">2. Configuração Inicial</a></li>
+                <li><a href="#ciclo-vida">3. Ciclo de Vida Local</a></li>
+                <li><a href="#resolucao-erros">4. Resolução de Erros</a></li>
+                <li><a href="#remotos">5. Repositórios Remotos</a></li>
+                <li><a href="#branches">6. Branches e Integração</a></li>
+                <li><a href="#referencia">7. Guia de Referência</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="introducao">
+                <h2>1. Introdução ao Controle de Versões</h2>
+                <p>O controle de versões é um sistema que registra as mudanças em um arquivo ou conjunto de arquivos ao longo do tempo, permitindo recuperar versões específicas mais tarde.</p>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Git</h3>
+                        <p>É um sistema de controle de versão distribuído (DVCS) local. Cada desenvolvedor possui uma cópia completa do histórico do projeto em sua máquina.</p>
+                    </div>
+                    <div class="card">
+                        <h3>GitHub</h3>
+                        <p>É uma plataforma de hospedagem de código-fonte e colaboração baseada na nuvem que utiliza o Git. Permite compartilhar repositórios e colaborar com outros desenvolvedores em todo o mundo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="configuracao">
+                <h2>2. Configuração Inicial</h2>
+                <p>Antes de começar a criar commits, é fundamental configurar sua identidade global no Git. Isso identificará o autor das alterações.</p>
+                <pre><code># Configurar nome de usuário
+git config --global user.name "Seu Nome"
+
+# Configurar e-mail do usuário
+git config --global user.email "seu.email@exemplo.com"
+
+# Verificar as configurações ativas
+git config --list</code></pre>
+            </section>
+
+            <section id="ciclo-vida">
+                <h2>3. Ciclo de Vida de Arquivos Local</h2>
+                <p>Os arquivos em um repositório Git passam por diferentes estados desde a criação até o salvamento permanente no histórico.</p>
+                
+                <div class="status-box">
+                    <ul>
+                        <li><strong>Untracked:</strong> Arquivo novo que o Git ainda não está rastreando.</li>
+                        <li><strong>Staged (Index):</strong> Arquivo preparado e marcado para ser incluído no próximo commit.</li>
+                        <li><strong>Committed:</strong> Alterações salvas com segurança no banco de dados local do Git.</li>
+                        <li><strong>Modified:</strong> Arquivo rastreado que foi alterado, mas ainda não foi para a área de staging.</li>
+                    </ul>
+                </div>
+
+                <h3>Comandos Essenciais:</h3>
+                <pre><code># Inicializar um repositório na pasta atual
+git init
+
+# Verificar o estado atual dos arquivos
+git status
+
+# Adicionar um arquivo específico para a área de preparação (Staging)
+git add nome-do-arquivo.txt
+
+# Adicionar todos os arquivos modificados e novos de uma vez
+git add .
+
+# Gravar as alterações permanentemente com uma mensagem explicativa
+git commit -m "Mensagem clara e descritiva do commit"</code></pre>
+            </section>
+
+            <section id="resolucao-erros">
+                <h2>4. Resolução de Problemas e Erros Comuns</h2>
+                <div class="alert-box">
+                    <h3>⚠️ Erro: Permissão Negada (Permission Denied) ao rodar <code>git init</code></h3>
+                    <p><strong>Causa:</strong> Este erro ocorre frequentemente no Linux ao tentar inicializar um repositório em diretórios do sistema (como <code>/var/www/html/</code>), que pertencem ao usuário <code>root</code> por padrão.</p>
+                    
+                    <h4>Como Resolver Corretamente (Opções):</h4>
+                    <ul>
+                        <li><strong>Opção 1 (Recomendada):</strong> Alterar o proprietário da pasta para o seu usuário do Linux para ter permissões completas de escrita.
+                            <pre><code>sudo chown -R seu_usuario:seu_grupo /var/www/html/meu_projeto</code></pre>
+                        </li>
+                        <li><strong>Opção 2 (Mais Segura para Aprendizado):</strong> Criar o projeto diretamente na sua pasta pessoal (Home), onde seu usuário possui controle total (ex: <code>/home/seu_usuario/projetos/</code>).</li>
+                    </ul>
+
+                    <p class="warning"><strong>Importante:</strong> Evite utilizar <code>sudo git init</code>! Se você criar o repositório como root, todos os arquivos internos de histórico do Git pertencerão ao root, gerando erros recorrentes de permissão negada nos comandos seguintes como <code>git add</code> ou <code>git commit</code>.</p>
+                </div>
+            </section>
+
+            <section id="remotos">
+                <h2>5. Trabalhando com Repositórios Remotos (GitHub)</h2>
+                <p>Para salvar seu código na nuvem ou colaborar com equipes, conectamos o repositório local a um servidor remoto como o GitHub.</p>
+                <pre><code># Vincular seu repositório local a um repositório remoto no GitHub
+git remote add origin https://github.com/usuario/nome-do-repositorio.git
+
+# Enviar os commits locais para o servidor remoto (ramificação principal)
+git push -u origin main
+
+# Atualizar seu repositório local com as alterações do servidor remoto
+git pull origin main
+
+# Clonar um repositório existente do GitHub para sua máquina local
+git clone https://github.com/usuario/nome-do-repositorio.git</code></pre>
+            </section>
+
+            <section id="branches">
+                <h2>6. Ramificações (Branching) e Integração</h2>
+                <p>As <em>branches</em> permitem isolar o desenvolvimento de novas funcionalidades, correções ou experimentos sem afetar a linha principal de produção (geralmente chamada de <code>main</code> ou <code>master</code>).</p>
+                <pre><code># Listar todas as branches locais
+git branch
+
+# Criar uma nova ramificação
+git branch nova-funcionalidade
+
+# Mudar para a ramificação criada
+git checkout nova-funcionalidade
+# Alternativa moderna: git switch nova-funcionalidade
+
+# Criar e mudar para a branch ao mesmo tempo
+git checkout -b nova-funcionalidade
+
+# Mesclar as alterações da branch atual com outra branch (ex: trazer para a main)
+# Primeiro volte para a branch principal: git checkout main
+# Depois execute a mesclagem:
+git merge nova-funcionalidade</code></pre>
+            </section>
+
+            <section id="referencia">
+                <h2>7. Tabela de Referência Rápida</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Comando</th>
+                            <th>Descrição Prática</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>git init</code></td>
+                            <td>Cria um novo repositório Git local.</td>
+                        </tr>
+                        <tr>
+                            <td><code>git status</code></td>
+                            <td>Mostra o estado atual dos arquivos (untracked, modified, staged).</td>
+                        </tr>
+                        <tr>
+                            <td><code>git add &lt;arquivo&gt;</code></td>
+                            <td>Adiciona arquivos à área de preparação (Staging Area).</td>
+                        </tr>
+                        <tr>
+                            <td><code>git commit -m ""</code></td>
+                            <td>Grava a foto do estado atual dos arquivos com uma mensagem explicativa.</td>
+                        </tr>
+                        <tr>
+                            <td><code>git log</code></td>
+                            <td>Exibe o histórico detalhado dos commits realizados.</td>
+                        </tr>
+                        <tr>
+                            <td><code>git remote add origin</code></td>
+                            <td>Conecta o repositório local ao repositório remoto na nuvem.</td>
+                        </tr>
+                        <tr>
+                            <td><code>git push</code></td>
+                            <td>Envia as alterações locais para o servidor remoto.</td>
+                        </tr>
+                        <tr>
+                            <td><code>git pull</code></td>
+                            <td>Baixa e mescla as alterações do servidor remoto no repositório local.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Guia de Estudos - Fundamentos de Sistemas Operacionais, Git & GitHub</p>
+    </footer>
+</body>
+</html>
+
+index.html
+Exibindo index.html.
