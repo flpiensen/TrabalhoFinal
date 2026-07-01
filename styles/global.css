@@ -1,0 +1,237 @@
+/* Estilo Geral Moderno e Limpo */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #24292e; /* Cor clássica do GitHub */
+    color: #ffffff;
+    padding: 40px 0;
+    text-align: center;
+    border-bottom: 4px solid #f1502f; /* Cor clássica do Git */
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #c8c9ca;
+}
+
+/* Layout com Sidebar */
+.main-layout {
+    display: table;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.sidebar {
+    display: table-cell;
+    width: 25%;
+    padding-right: 30px;
+    vertical-align: top;
+}
+
+.sidebar h3 {
+    font-size: 1.2rem;
+    color: #24292e;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e1e4e8;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #0366d6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    display: table-cell;
+    width: 75%;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    vertical-align: top;
+}
+
+/* Seções e Elementos de Conteúdo */
+section {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    color: #24292e;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    border-left: 5px solid #f1502f;
+    padding-left: 10px;
+}
+
+h3 {
+    color: #444444;
+    font-size: 1.25rem;
+    margin: 20px 0 10px 0;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* Bloco de Código (Pre/Code) */
+pre {
+    background-color: #272822;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    border-left: 4px solid #66d9ef;
+}
+
+code {
+    background-color: rgba(27,31,35,0.05);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.95rem;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    font-size: inherit;
+}
+
+/* Grid de Cards */
+.grid {
+    display: table;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.card {
+    display: table-cell;
+    width: 50%;
+    padding: 15px;
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+}
+
+.card:first-child {
+    border-right: none;
+}
+
+/* Caixa de Alerta/Aviso */
+.alert-box {
+    background-color: #fff9e6;
+    border-left: 5px solid #e6a23c;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.alert-box h3 {
+    margin-top: 0;
+    color: #b07d00;
+}
+
+.warning {
+    color: #c0392b;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Caixa de Status (Lista Especial) */
+.status-box {
+    background-color: #f1f8ff;
+    border-left: 5px solid #0366d6;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.status-box ul {
+    list-style-position: inside;
+    padding-left: 5px;
+}
+
+.status-box li {
+    margin-bottom: 8px;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #e1e4e8;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f6f8fa;
+    color: #24292e;
+    font-weight: 600;
+}
+
+table tr:nth-child(even) {
+    background-color: #fdfdfd;
+}
+
+/* Rodapé */
+footer {
+    background-color: #24292e;
+    color: #c8c9ca;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
